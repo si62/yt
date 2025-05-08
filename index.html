@@ -25,6 +25,10 @@
             margin-top: 10px;
             border: none;
         }
+		button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -46,6 +50,11 @@
 
         function checkEnter(event) {
             if (event.key === 'Enter') {
+				convertUrl();
+
+            }
+        }
+        function convertUrl() {
                 const input = document.getElementById("inputUrl").value;
                 const embedUrl = convertToEmbedUrl(input);
                 const iframe = document.getElementById("videoFrame");
@@ -56,8 +65,8 @@
                 } else {
                     alert("無效的 YouTube URL");
                 }
-            }
-        }
+        }		
+
     </script>
 </body>
 </html>
