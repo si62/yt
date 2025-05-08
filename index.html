@@ -36,8 +36,29 @@
             margin-top: 20px;
         }
     </style>
+	<script>
+        function convertToEmbedUrl(youtubeUrl) {
+            const videoIdMatch = youtubeUrl.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|live\/|.*[?&]v=)|youtu\.be\/)([^&\n]{11})/);
+            if (videoIdMatch) {
+                const videoId = videoIdMatch[1];
+                return `https://www.youtube.com/embed/${videoId}`;
+            } else {
+                return "無效的 YouTube URL";
+            }
+        }
+
+        function convertUrl() {
+            const input = document.getElementById("youtubeLink").value;
+            const output = convertToEmbedUrl(input);
+            document.getElementById("embedlink").innerText = output;
+			document.getElementById("iframeYT").src = output;
+        }
+	</script>
 </head>
 <body>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/OWGyDOXq64U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	<textarea id="youtubeLink" placeholder="請貼上 YouTube 影片連結"></textarea>
+	<button onclick="convertUrl()">Load</button>
+	<div id="embedlink"></div>
+	<iframe id="iframeYT" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </body>
 </html>
