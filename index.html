@@ -34,7 +34,8 @@
 <body>
     <h1>YouTube URL</h1>
     <input type="text" id="inputUrl" placeholder="請輸入 YouTube URL" onkeypress="checkEnter(event)">
-	<button onclick="convertUrl()">Load</button>
+	<button onclick="convertUrl()">開啟</button>
+	<button onclick="clearInput()">清空</button>
     <iframe id="videoFrame" src="" allowfullscreen></iframe>
 
     <script>
@@ -66,7 +67,10 @@
                     alert("無效的 YouTube URL");
                 }
         }		
-
+        function clearInput() {
+            document.getElementById("inputUrl").value = ""; // 清空輸入框
+            document.getElementById("videoFrame").src = ""; // 清空 iframe
+        }
     </script>
 </body>
 </html>
