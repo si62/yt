@@ -11,7 +11,7 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            max-width: 600px;
+            max-width: 1024px;
         }
         input {
             width: 100%;
@@ -43,7 +43,7 @@
             const videoIdMatch = youtubeUrl.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|live\/|.*[?&]v=)|youtu\.be\/)([^&\n]{11})/);
             if (videoIdMatch) {
                 const videoId = videoIdMatch[1];
-                return `https://www.youtube.com/embed/${videoId}?autoplay=1&fullscreen=1&vq=small`;
+                return `https://www.youtube.com/embed/${videoId}?autoplay=1&fullscreen=1&vq=small&afmt=55&fs=1`;
             } else {
                 return null; // 無效的 YouTube URL
             }
@@ -62,7 +62,7 @@
                 
                 if (embedUrl) {
                     iframe.src = embedUrl; // 將嵌入 URL 設置到 iframe 的 src
-                    iframe.requestFullscreen(); // 進入全螢幕模式
+                    //iframe.requestFullscreen(); // 進入全螢幕模式
                 } else {
                     alert("無效的 YouTube URL");
                 }
