@@ -43,7 +43,7 @@
             const videoIdMatch = youtubeUrl.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|live\/|.*[?&]v=)|youtu\.be\/)([^&\n]{11})/);
             if (videoIdMatch) {
                 const videoId = videoIdMatch[1];
-                return `https://www.youtube.com/embed/${videoId}?autoplay=1&fullscreen=1`;
+                return `https://www.youtube.com/embed/${videoId}?autoplay=1&fullscreen=1&vq=small`;
             } else {
                 return null; // 無效的 YouTube URL
             }
